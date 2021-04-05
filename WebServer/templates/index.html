@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/grid.min.css')}}">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Main page</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row top">
+            <div class="col-9"></div>
+            <div class="col-1">회원가입</div>
+            <div class="col-1">문제신고</div>
+            <div class="col-1">알림</div>
+        </div>
+        <hr>
+       <div class="row">
+            <div class="nav">
+                <div class="col-3">
+                    <a href="#home" class="logo"> 
+                        <img src="{{url_for('static',filename='img/logo.png')}}" alt="logo" width="100%"> 
+                    </a>
+                </div>
+                <div class="col-6">
+                    <form method="GET" action="/project" name=projectIdx>
+                        <input type="text" placeholder="search" class="search" > 
+                    </form>
+                    <!-- <a href="#" class="button"> <img src="asset/loupe.png" alt="button" width="15px"></a> -->
+                </div>
+                <div class="col-1">
+                    <a href="#">About</a>
+                </div>
+                <div class="col-1">
+                    <a href="#">Login</a>
+                </div>
+                <div class="col-1">
+                    <a href="#">Mypage</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- carousel를 구성할 영역 설정 -->
+        <div class="row">
+            <div class="col-12">
+                <div>
+                    <div id="carousel-example-generic" class="carousel slide" >
+                      <ol class="carousel-indicators">
+                        <!-- Indicators -->
+                        <!-- li는 이미지 개수만큼 추가하고 data-target은 carousel id를 가르킨다. -->
+                        <!-- data-slide-to는 순서대로 0부터 올라가고 0은 active를 설정한다. -->
+                        <!-- 딱히 이 부분은 옵션별로 설정하게 없다. -->
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          
+                      </ol>
+                      <!-- 실제 이미지 아이템 -->
+                      <!-- Wrapper for slides -->
+                      <!-- class는 carousel-inner로 설정하고 role은 listbox에서 설정한다. -->
+                      <div class="carousel-inner" role="listbox">
+                        <!-- 이미지의 개수만큼 item을 만든다. 중요한 포인트는 carousel-indicators의 li 태그 개수와 item의 개수는 일치해야 한다. -->
+                        <div class="item active">
+                          <!-- 아미지 설정- -->
+                          <img src="{{url_for('static',filename='img/banner1.png')}}" style="width:100%">
+                          <div class="carousel-caption" style="color:black;">
+                          </div>
+                        </div>
+                        <div class="item">
+                          <img src="{{url_for('static',filename='img/banner2.png')}}" style="width:100%">
+                          <div class="carousel-caption" style="color:black;">
+                          </div>
+                        </div>
+                        <div class="item">
+                          <img src="{{url_for('static',filename='img/banner3.png')}}" style="width:100%">
+                          <div class="carousel-caption" style="color:black;">
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Controls -->
+                      <!-- 왼쪽 화살표 버튼 -->
+                      <!-- href는 carousel의 id를 가르킨다. -->
+                      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <!-- 왼쪽 화살표 -->
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      </a>
+                      <!-- 오른쪽 화살표 버튼 -->
+                      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <!-- 오른쪽 화살표 -->
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      </a>
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+        
+        <hr>
+            <!-- 공모전 리스트 넣을꺼임-->
+        
+            {%block boardlist%}
+            
+            {%endblock%}
+    </div>
+
+
+    <script>
+    $(function(){
+    // 이미지 슬라이드 컨트롤를 사용하기 위해서는 carousel를 실행해야한다.
+        $('#carousel-example-generic').carousel({
+            // 슬리아딩 자동 순환 지연 시간
+            // false면 자동 순환하지 않는다.
+            interval: 1000,
+            // hover를 설정하면 마우스를 가져대면 자동 순환이 멈춘다.
+            pause: "hover",
+            // 순환 설정, true면 1 -> 2가면 다시 1로 돌아가서 반복
+            wrap: true,
+            // 키보드 이벤트 설정 여부(?)
+            keyboard : true
+        });
+    });
+    </script>
+
+</body>
+</html>

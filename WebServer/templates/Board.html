@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{%block boardlist %}
+<div class="col-12">
+  <table class="table">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>닉네임</th>
+            <th>email</th>
+            <th>기여도</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in data_list%}
+        <tr>
+            <td>{{i[0]}}</td>
+            <td>{{i[1]}}</td>
+            <td>{{i[2]}}</td>
+            <td>{{i[3]}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{%endblock%}
