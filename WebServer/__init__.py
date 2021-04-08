@@ -4,7 +4,7 @@ from datetime import datetime, date, timedelta
 #from dateutil.relativedelta import relativedelta
 #from flask_cors import CORS
 #from flask_restful import Resource,reqparse,Api
-from WebServer import db
+from WebServer import model
 import json
 import pymysql
 
@@ -21,20 +21,22 @@ def insertContent():
 # @app.route("/project/<projectIdx>",methods=['GET'])
 # def showProjects(projectIdx):
 #   projectIdx = request.form['projectIdx']
-#   return db.getProjects(projectIdx)
+#   return model.getProjects(projectIdx)
 
 @app.route("/users",methods=['GET'])
 def getAllUser():
-  result = db.getAllUsers()
+  result = model.getAllUsers()
   print(result)
   return render_template('Board.html',data_list=result)
 
 @app.route("/team",methods=['GET'])
 def getTeamList():
-  teamName = db.getTeamName()
-  
+  teamName = model.getTeamName()
   return render_template('teamBoard.html',teamName=teamName)
 
+@app.route("/login")
+def loginPage():
+  return render_template('login.html')
 
 @app.route("/")
 def helloworld():
