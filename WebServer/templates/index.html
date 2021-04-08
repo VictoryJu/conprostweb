@@ -18,39 +18,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="row top">
-            <div class="col-9"></div>
-            <div class="col-1">회원가입</div>
-            <div class="col-1">문제신고</div>
-            <div class="col-1">알림</div>
-        </div>
-        <hr>
-       <div class="row">
-            <div class="nav">
-                <div class="col-3">
-                    <a href="#home" class="logo"> 
-                        <img src="{{url_for('static',filename='img/logo.png')}}" alt="logo" width="100%"> 
-                    </a>
-                </div>
-                <div class="col-6">
-                    <form method="GET" action="/project" name=projectIdx>
-                        <input type="text" placeholder="search" class="search" > 
-                    </form>
-                    <!-- <a href="#" class="button"> <img src="asset/loupe.png" alt="button" width="15px"></a> -->
-                </div>
-                <div class="col-1">
-                    <a href="#">About</a>
-                </div>
-                <div class="col-1">
-                    <a href="#">Login</a>
-                </div>
-                <div class="col-1">
-                    <a href="#">Mypage</a>
-                </div>
-            </div>
-        </div>
-        <hr>
-
+      {% include "inc/contents.html" ignore missing without context %}
         <!-- carousel를 구성할 영역 설정 -->
         <div class="row">
             <div class="col-12">
@@ -108,9 +76,7 @@
         
         <hr>
             <!-- 공모전 리스트 넣을꺼임-->
-        
             {%block boardlist%}
-            
             {%endblock%}
     </div>
 

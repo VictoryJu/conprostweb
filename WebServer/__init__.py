@@ -1,9 +1,9 @@
 from flask import Flask, g, request, Response, make_response, session
 from flask import render_template, Markup, url_for
 from datetime import datetime, date, timedelta
-from dateutil.relativedelta import relativedelta
-from flask_cors import CORS
-from flask_restful import Resource,reqparse,Api
+#from dateutil.relativedelta import relativedelta
+#from flask_cors import CORS
+#from flask_restful import Resource,reqparse,Api
 from WebServer import db
 import json
 import pymysql
@@ -11,7 +11,7 @@ import pymysql
 app = Flask(__name__)
 app.debug = True
 
-CORS(app)
+#CORS(app)
 
 @app.route("/api/insert",methods=['POST'])
 def insertContent():
@@ -26,7 +26,14 @@ def insertContent():
 @app.route("/users",methods=['GET'])
 def getAllUser():
   result = db.getAllUsers()
+  print(result)
   return render_template('Board.html',data_list=result)
+
+@app.route("/team",methods=['GET'])
+def getTeamList():
+  teamName = db.getTeamName()
+  
+  return render_template('teamBoard.html',teamName=teamName)
 
 
 @app.route("/")
