@@ -7,8 +7,16 @@
     margin-top: 100px;
 }
 
+.teamname{
+    color:#F2AC57;
+}
+
+.loginTitle{
+    color:#F2AC57;
+}
+
 .teamlist{
-    color:rgb(175, 101, 5);
+    color:#F2AC57;
 }
 
 body{
