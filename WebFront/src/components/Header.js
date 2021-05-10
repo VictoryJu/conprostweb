@@ -19,7 +19,7 @@ return (
             </a>
         </div>
         <div class="col-6">
-            <form method="GET" action="/project" name ="projectIdx" >
+            <form method="GET" action="/project" name ="projectIdx">
                 <input type="text" placeholder="search" class="search" />
             </form>
         </div>
