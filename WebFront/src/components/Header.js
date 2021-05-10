@@ -15,7 +15,7 @@ return (
     <div class="nav">
         <div class="col-3">
             <a href="/" class="logo"> 
-            <img src="/img/logo.png" alt="logo" width="100%"/> 
+                <img src="/img/logo.png" alt="logo" width="100%"/> 
             </a>
         </div>
         <div class="col-6">
@@ -33,11 +33,10 @@ return (
             <a href="#">Mypage</a>
         </div>
     </div>
-    <hr/>
-    </div>
 </div>
-  )
-
+<hr/>
+</div>
+)
 }
 
 export default Header
