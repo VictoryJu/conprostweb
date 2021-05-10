@@ -19,8 +19,8 @@ return (
             </a>
         </div>
         <div class="col-6">
-            <form method="GET" action="/project" name = {projectIdx} >
-                <input type="text" placeholder="search" class="search"/>
+            <form method="GET" action="/project" name ="projectIdx" >
+                <input type="text" placeholder="search" class="search" />
             </form>
         </div>
         <div class="col-1">
